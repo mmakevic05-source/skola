@@ -1,0 +1,79 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+nav {
+  background-color: rgb(26, 82, 118);
+  padding: 15px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+nav .logo {
+  color: yellow;
+  font-size: 15px;
+  font-weight: bold;
+}
+nav a {
+  color: white;
+  text-decoration: none;
+  margin-left: 20px;
+}
+nav a:hover {
+  color: yellow;
+}
+
+.hero {
+  background-color: rgb(26, 82, 118);
+  color: white;
+  text-align: center;
+  padding: 60px 20px;
+}
+.hero h1 {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+.hero p {
+  font-size: 16px;
+  opacity: 0.85;
+}
+
+.obavestenja {
+  background-color: rgb(242, 243, 244);
+  padding: 40px 30px;
+}
+.obavestenja h2 {
+  color: rgb(26, 82, 118);
+  margin-bottom: 20px;
+  text-align: center;
+}
+.obavestenja .kartice {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+.obavestenja .kartica {
+  background-color: white;
+  border-top: 4px solid rgb(26, 82, 118);
+  padding: 20px;
+  width: 250px;
+}
+.obavestenja .kartica h3 {
+  color: rgb(26, 82, 118);
+  margin-bottom: 8px;
+}
+.obavestenja .kartica p {
+  font-size: 15px;
+  color: rgb(85, 85, 85);
+}
+
+footer {
+  background-color: rgb(26, 82, 118);
+  color: white;
+  text-align: center;
+  padding: 15px;
+  font-size: 15px;
+}
