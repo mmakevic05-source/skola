@@ -1,106 +1,164 @@
-
-$plava: rgb(26, 82, 118);      
-$zuta: yellow;                  
-$siva: rgb(242, 243, 244);  
-$bela: white;                 
-
-
+// ============================
+// VARIJABLE
+// ============================
+$plava: rgb(26, 82, 118);
+$zuta: yellow;
+$siva: rgb(242, 243, 244);
+$bela: white;
+$mobilni: 768px;
+ 
+// ============================
+// MIXIN - flex raspored
+// ============================
 @mixin flex-centar {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-
-
+ 
+// ============================
+// SASS FUNKCIJA - racuna padding
+// ============================
+@function padding($osnova) {
+  @return $osnova * 2;
+}
+ 
+// ============================
+// RESET
+// ============================
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: Arial, sans-serif;
 }
-
-
+ 
+// ============================
+// NAVIGACIJA
+// ============================
 nav {
-  background-color: $plava;   
+  background-color: $plava;
   padding: 15px 30px;
-  @include flex-centar;       
-
-
+  @include flex-centar;
+ 
   .logo {
     color: $zuta;
-    font-size: 15px;
+    font-size: 19px;
     font-weight: bold;
   }
-
-
+ 
   a {
     color: $bela;
     text-decoration: none;
     margin-left: 20px;
-
-   
+ 
     &:hover {
       color: $zuta;
     }
   }
+ 
+  // RESPONZIVNOST - na mobilnom sakrivamo linkove
+  @media (max-width: $mobilni) {
+    flex-direction: column;
+    gap: 10px;
+ 
+    a {
+      margin-left: 0;
+    }
+  }
 }
-
-
+ 
+// ============================
+// HERO
+// ============================
 .hero {
   background-color: $plava;
   color: $bela;
   text-align: center;
-  padding: 60px 20px;
-
+  padding: padding(30px);  // koristimo funkciju: 30px * 2 = 60px
+ 
   h1 {
     font-size: 32px;
     margin-bottom: 10px;
   }
-
+ 
   p {
     font-size: 16px;
     opacity: 0.85;
   }
+ 
+  @media (max-width: $mobilni) {
+    padding: 30px 15px;
+ 
+    h1 { font-size: 24px; }
+  }
 }
-
+ 
+// ============================
+// OBAVESTENJA
+// ============================
 .obavestenja {
   background-color: $siva;
   padding: 40px 30px;
-
+ 
   h2 {
     color: $plava;
     margin-bottom: 20px;
     text-align: center;
   }
-
+ 
   .kartice {
     display: flex;
     gap: 20px;
     justify-content: center;
+ 
+    // RESPONZIVNOST - kartice jedna ispod druge na mobilnom
+    @media (max-width: $mobilni) {
+      flex-direction: column;
+      align-items: center;
+    }
   }
-
+ 
+  // PETLJA - stilizuje prvih 3 kartice razlicitim bojama gornje linije
+  @for $i from 1 through 3 {
+    .kartica:nth-child(#{$i}) {
+      // USLOV - prva kartica ima zutu liniju, ostale plavu
+      @if $i == 1 {
+        border-top: 4px solid $zuta;
+      } @else {
+        border-top: 4px solid $plava;
+      }
+    }
+  }
+ 
   .kartica {
     background-color: $bela;
-    border-top: 4px solid $plava; 
     padding: 20px;
     width: 250px;
-
+ 
     h3 {
       color: $plava;
       margin-bottom: 8px;
     }
-
+ 
     p {
-      font-size: 15px;
-      color: rgb(85, 85, 85);   
+      font-size: 14px;
+      color: rgb(85, 85, 85);
+    }
+ 
+    @media (max-width: $mobilni) {
+      width: 90%;
     }
   }
 }
-
+ 
+// ============================
+// FOOTER
+// ============================
 footer {
   background-color: $plava;
   color: $bela;
   text-align: center;
   padding: 15px;
-  font-size: 15px;
+  font-size: 14px;
 }
