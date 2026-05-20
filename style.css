@@ -14,7 +14,7 @@ nav {
 }
 nav .logo {
   color: yellow;
-  font-size: 15px;
+  font-size: 19px;
   font-weight: bold;
 }
 nav a {
@@ -25,12 +25,21 @@ nav a {
 nav a:hover {
   color: yellow;
 }
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    gap: 10px;
+  }
+  nav a {
+    margin-left: 0;
+  }
+}
 
 .hero {
   background-color: rgb(26, 82, 118);
   color: white;
   text-align: center;
-  padding: 60px 20px;
+  padding: 60px;
 }
 .hero h1 {
   font-size: 32px;
@@ -39,6 +48,14 @@ nav a:hover {
 .hero p {
   font-size: 16px;
   opacity: 0.85;
+}
+@media (max-width: 768px) {
+  .hero {
+    padding: 30px 15px;
+  }
+  .hero h1 {
+    font-size: 24px;
+  }
 }
 
 .obavestenja {
@@ -55,9 +72,23 @@ nav a:hover {
   gap: 20px;
   justify-content: center;
 }
+@media (max-width: 768px) {
+  .obavestenja .kartice {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+.obavestenja .kartica:nth-child(1) {
+  border-top: 4px solid yellow;
+}
+.obavestenja .kartica:nth-child(2) {
+  border-top: 4px solid rgb(26, 82, 118);
+}
+.obavestenja .kartica:nth-child(3) {
+  border-top: 4px solid rgb(26, 82, 118);
+}
 .obavestenja .kartica {
   background-color: white;
-  border-top: 4px solid rgb(26, 82, 118);
   padding: 20px;
   width: 250px;
 }
@@ -66,8 +97,13 @@ nav a:hover {
   margin-bottom: 8px;
 }
 .obavestenja .kartica p {
-  font-size: 15px;
+  font-size: 14px;
   color: rgb(85, 85, 85);
+}
+@media (max-width: 768px) {
+  .obavestenja .kartica {
+    width: 90%;
+  }
 }
 
 footer {
@@ -75,5 +111,5 @@ footer {
   color: white;
   text-align: center;
   padding: 15px;
-  font-size: 15px;
+  font-size: 14px;
 }
